@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 #import "BBWeeAppController-Protocol.h"
-#import "GraphicServices.h"
+#import "Springboard-Class.h"
 @interface SimpleBrightnessSliderController : NSObject <BBWeeAppController>
 {
     UIView *_view;
@@ -71,13 +72,12 @@
 
 - (void)viewDidAppear
 {
-    NSNumber *val = (NSNumber*)CFPreferencesCopyAppValue(CFSTR("SBBacklightLevel2" ), CFSTR("com.apple.springboard"));
-    slider.value = [val floatValue];
+    slider.value = [(SpringBoard *)[objc_getClass("SpringBoard") sharedApplication] systemBacklightLevel];//[val floatValue];
 }
 
 - (void)sliderUpdated:(id)sender
 {
-    GSEventSetBacklightLevel(slider.value);
+    [(SpringBoard *)[objc_getClass("SpringBoard") sharedApplication] setBacklightLevel:slider.value permanently:YES];
 }
 
 - (float)viewHeight
