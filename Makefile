@@ -3,10 +3,10 @@ SDKVERSION = 5.0
 include /usr/local/theos/makefiles/common.mk
 
 LIBRARY_NAME = SimpleBrightnessSlider
-SimpleBrightnessSlider_FILES = SimpleBrightnessSlider.mm
+SimpleBrightnessSlider_FILES = SimpleBrightnessSlider.m
 SimpleBrightnessSlider_INSTALL_PATH = /System/Library/WeeAppPlugins/SimpleBrightnessSlider.bundle
 SimpleBrightnessSlider_FRAMEWORKS = UIKit CoreGraphics
-SimpleBrightnessSlider_PRIVATE_FRAMEWORKS = BulletinBoard GraphicsServices
+SimpleBrightnessSlider_PRIVATE_FRAMEWORKS = BulletinBoard
 
 include $(THEOS_MAKE_PATH)/library.mk
 
