@@ -17,7 +17,7 @@
 @implementation SimpleBrightnessSliderController
 
 + (void)initialize {}
-- (float)viewHeight { return 30; }
+- (float)viewHeight { return 34; }
 
 - (UIView *)view 
 {
